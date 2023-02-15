@@ -7,7 +7,7 @@ long checkNumber(string? strNumber) // проверка на то, что это
     }
     catch (System.Exception)
     {
-        Console.WriteLine("Введенное значение не верно!");
+        Console.WriteLine("Введенное значение не верно!\nТребуется числовое значение");
         Environment.Exit(-1);
         return (-1);
     }
@@ -21,7 +21,9 @@ Console.Write($"Введите порядковый номер цифры до {
 long ordinal = checkNumber(Console.ReadLine());
 if (ordinal < 1)
 {
-    Console.WriteLine("Порядковый номер не может быть меньше 1 !!!");
+    Console.WriteLine("Порядковый номер цифры не может быть меньше 1 !!!");
+    Environment.Exit(-1);
+
 }
 
 if (value < 0) value *= (-1); // инверсия знака
@@ -34,5 +36,5 @@ if (ordinal > digit)
 }
 
 long ordL = (value / Convert.ToInt64(Math.Pow(10, digit - ordinal))) % 10;  // левай цифра
-long ordR = (value / Convert.ToInt64(Math.Pow(10, ordinal - 1))) % 10;        // правая цифра
+long ordR = (value / Convert.ToInt64(Math.Pow(10, ordinal - 1))) % 10;      // правая цифра
 Console.WriteLine($"{ordinal} цифра слева = {ordL}\t {ordinal} цифра справа = {ordR}");
