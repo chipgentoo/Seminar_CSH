@@ -1,34 +1,34 @@
-int checkNumber(string? strNumber) // проверка на то, что это не строка
+long checkNumber(string? strNumber) // проверка на то, что это не строка
 {
-    int number = 0;
+    long number = 0;
     try
     {
-        return number = Convert.ToInt32(strNumber);
+        return number = Convert.ToInt64(strNumber);
     }
     catch (System.Exception)
     {
-        return number = (-1);
+        Console.WriteLine("Введенное значение не верно!");
+        Environment.Exit(-1);
+        return (-1);
     }
 }
 
-Console.WriteLine("Поиск 3й цифры для +/- 7ми-значного числа");
-Console.WriteLine("Введите число:");
+Console.WriteLine("Поиск N-й цифры для +/- Х-значного целого числа формата (long)");
+Console.Write("Введите исходное число:");
+long value = checkNumber(Console.ReadLine());
 
-int value = checkNumber(Console.ReadLine());
+Console.Write($"Введите порядковый номер цифры до {Convert.ToString(value).Length} : ");
+long ordinal = checkNumber(Console.ReadLine());
 
-if (value >= -9999999 || value <= 9999999)
+if (value < 0) value *= (-1); // инверсия знака
+
+int digit = Convert.ToString(value).Length; // разрядность числа
+if (ordinal > digit)
 {
-    if (value < 0) value *= (-1); // инверсия знака
-    string strNumber = Convert.ToString(value); // пределяем длинну числа
-    int digit = strNumber.Length;               // для определения разрядности/порядка
-    if (digit > 2) // если 3х-значное или больше
-    {
-        double tmp = 0;
-        while ((value % (10 ^ digit)) > 1)
-        {
-            Console.WriteLine($"value = {value}\tdigit = {digit}\ttmp = {tmp}");
-            tmp = value % (10 ^ digit);
-            digit--;
-        }
-    }
+    Console.WriteLine($"{ordinal} цифры не существует");
+    Environment.Exit(0);
 }
+
+long ordL = (value / Convert.ToInt64(Math.Pow(10, digit - ordinal))) % 10;  // левай цифра
+long ordR = (value / Convert.ToInt64(Math.Pow(10, ordinal-1))) % 10;        // правая цифра
+Console.WriteLine($"{ordinal} цифра слева = {ordL}\t {ordinal} цифра справа = {ordR}");
