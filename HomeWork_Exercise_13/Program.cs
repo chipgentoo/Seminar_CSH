@@ -1,4 +1,4 @@
-﻿int checkNumber(string? strNumber) // проверка на то, что это не строка
+int checkNumber(string? strNumber) // проверка на то, что это не строка
 {
     int number = 0;
     try
@@ -28,7 +28,7 @@ if (value >= -9999999 || value <= 9999999)
         {
             Console.WriteLine($"value = {value}\tdigit = {digit}\ttmp = {tmp}");
             tmp = value % (10 ^ digit);
-            digit--;
+            digit++;
         }
     }
 }
