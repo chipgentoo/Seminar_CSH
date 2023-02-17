@@ -33,4 +33,4 @@ int bz = getCoord();
 
 var result = Math.Sqrt(Math.Pow(ax - bx, 2) + Math.Pow(ay - by, 2) + Math.Pow(az - bz, 2));
 
-Console.WriteLine($"result = {result:f2}");
+Console.WriteLine($"Длинна отрезка в 3D пространстве состовляет = {result:f2}");
