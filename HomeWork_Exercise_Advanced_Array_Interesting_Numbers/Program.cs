@@ -27,11 +27,12 @@ for (int i = 0; i < 10; i++)
     while (true)
     {
         int number = new Random().Next(10, 1000); // 10-999
-        if(getMulti(number)==0) continue;
+        if(getMulti(number)==0) continue; // Ноль нет смысла делить.
+        //if(getSum(number)==0) continue; // Сумма всегда > 0 если число > 0, а на ноль делить нельзя!!!
         if (getMulti(number) % getSum(number) == 0)
         {
-            Console.WriteLine($"{i} число = {number}\t\t произв = {getMulti(number)}\t\t сумма = {getSum(number)}\t\t делитель = {getMulti(number) / getSum(number)}");
             arrayNumber[i] = number;
+            Console.WriteLine($"{i} число = {number}\t\t произв = {getMulti(number)}\t\t сумма = {getSum(number)}\t\t делитель = {getMulti(number) / getSum(number)}");
             break;
         }
     }
