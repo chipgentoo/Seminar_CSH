@@ -23,10 +23,10 @@ int getMulti(int number)
 }
 
 Console.WriteLine("Массив из 10 интересных чисел произведение цифр которых делится на их сумму");
-int[] arrayNumber = new int[100000];
+int[] arrayNumber = new int[10];
 Stopwatch getTime = new Stopwatch();
 getTime.Start(); // засекаем время
-for (int i = 0; i < 100000; i++)
+for (int i = 0; i < 10; i++)
 {
     while (true)
     {
