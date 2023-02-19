@@ -32,7 +32,7 @@ for (int i = 0; i < 10; i++)
         if (getMulti(number) % getSum(number) == 0)
         {
             arrayNumber[i] = number;
-            Console.WriteLine($"{i} число = {number}\t\t произв = {getMulti(number)}\t\t сумма = {getSum(number)}\t\t делитель = {getMulti(number) / getSum(number)}");
+            Console.WriteLine($"{i} число = {number}\t\t произв = {getMulti(number)}\t\t сумма = {getSum(number)}\t\t разность = {getMulti(number) / getSum(number)}");
             break;
         }
     }
