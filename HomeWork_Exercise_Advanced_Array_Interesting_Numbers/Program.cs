@@ -1,4 +1,6 @@
-﻿int getSum(int number)
+﻿using System.Diagnostics;
+
+int getSum(int number)
 {
     int summa = 0;
     while (number > 0)
@@ -21,8 +23,10 @@ int getMulti(int number)
 }
 
 Console.WriteLine("Массив из 10 интересных чисел произведение цифр которых делится на их сумму");
-int[] arrayNumber = new int[10];
-for (int i = 0; i < 10; i++)
+int[] arrayNumber = new int[100000];
+Stopwatch getTime = new Stopwatch();
+getTime.Start(); // засекаем время
+for (int i = 0; i < 100000; i++)
 {
     while (true)
     {
@@ -37,3 +41,5 @@ for (int i = 0; i < 10; i++)
         }
     }
 }
+getTime.Stop(); // останавливаем время
+Console.WriteLine($"Затраченное время = {getTime.Elapsed}");
