@@ -1,8 +1,8 @@
 ﻿int GetNumberConsole(string message)
 {
     Console.WriteLine(message);
-    string strValue = Console.ReadLine()!;
-    int number = int.Parse(strValue);
+    string? strValue = Console.ReadLine();
+    int number = Convert.ToInt32(strValue);
     return number;
 }
 
@@ -18,7 +18,7 @@ int GetPower(int number, int exp)
 
 bool CheckExp(int exp)
 {
-    if (exp > 0)
+    if (exp >= 0)
     {
         return true;
     }
