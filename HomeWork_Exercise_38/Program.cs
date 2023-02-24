@@ -11,21 +11,21 @@
     return number;
 }
 
-int[] fillArray(int[] array, int minValue, int maxValue)
+double[] fillArray(double[] array)
 {
     int size = array.Length;
     for (int i = 0; i < size; i++)
     {
-        array[i] = new Random().Next(minValue, maxValue + 1);
+        array[i] = new Random().NextDouble()*100;
     }
     return array;
 }
 
-int diffMinMax(int[] array)
+double diffMinMax(double[] array)
 {
     int size = array.Length;
-    int min = array[0];
-    int max = min;
+    double min = array[0];
+    double max = min;
     for (int i = 0; i < size; i++)
     {
         if (array[i] > max) max = array[i];
@@ -35,9 +35,7 @@ int diffMinMax(int[] array)
 }
 
 int size = GetNumberConsole("Введите размер массива:");
-int minValue = 0;
-int maxValue = 1000;
-int[] array = new int[size];
-array = fillArray(array, minValue, maxValue);
+double[] array = new double[size];
+array = fillArray(array);
 
 Console.WriteLine($"В массиве: [{ string.Join("; ", array)}]\n\nразница между макс. и мин. значением состовляет: {diffMinMax(array)}");
