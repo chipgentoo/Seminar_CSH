@@ -21,7 +21,7 @@ for (int i = 0; i < sizeArray; i++)
 Console.WriteLine($"{string.Join("; ", array)}");
 
 //этот массив - 8 случайных чисел
-Console.WriteLine("\nМассив из 8 случайных чисел!");
+Console.WriteLine("Массив из 8 случайных чисел!");
 int[] array2 = new int[8];
 for (int i = 0; i < 8; i++)
 {
