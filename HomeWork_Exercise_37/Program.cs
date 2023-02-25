@@ -11,7 +11,7 @@
     return number;
 }
 
-int[] fillArray(int[] array, int minValue, int maxValue)
+int[] FillArray(int[] array, int minValue, int maxValue)
 {
     int size = array.Length;
     for (int i = 0; i < size; i++)
@@ -43,7 +43,7 @@ int size = GetNumberConsole("Введите размер массива: ");
 int[] array = new int[size];
 int minValue = 0;
 int maxValue = 999;
-array = fillArray(array, minValue, maxValue);
+array = FillArray(array, minValue, maxValue);
 int[] prodArray = ProdArray(array);
 
 Console.Write($"Исходный массив:[{string.Join("; ", array)}]\n");
