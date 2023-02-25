@@ -24,23 +24,19 @@ int[] fillArray(int[] array, int minValue, int maxValue)
 int[] ProdArray(int[] array)
 {
     int inSize = array.Length;
-    int prodSize = 0; // размер выходного массива
-    if (inSize % 2 == 0)
+    int outSize = inSize / 2;           // для четных массивов
+    if (inSize % 2 != 0) outSize += 1;  // для НЕ четных массивов
+    int[] outArray = new int[outSize];
+
+    for (int i = 0; i < inSize / 2; i++)    // четные полностью, НЕ четные -1 значение
     {
-        prodSize = inSize / 2; // для четного размера массива
+        outArray[i] = array[i] * array[(inSize - 1) - i];
     }
-    else
+    if (inSize % 2 != 0)    // для НЕ четных в конец добиваем среднее значение входящего массива
     {
-        prodSize = inSize / 2 + 1; // для НЕ четного размера массива
+        outArray[outSize - 1] = array[outSize-1];
     }
-    
-    int[] prodArray = new int[prodSize];
-    for (int i = 0; i < prodSize; i++)
-    {
-        prodArray[i] = array[i] * array[(inSize - 1) - i];
-    }
-    
-    return prodArray;
+    return outArray;
 }
 
 int size = GetNumberConsole("Введите размер массива: ");
