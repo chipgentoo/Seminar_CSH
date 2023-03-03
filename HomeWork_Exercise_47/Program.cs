@@ -3,8 +3,9 @@
 //  0,5 7 -2 -0,2
 //  1 -3,3 8 -9,9
 //  8 7,8 -7,1 9
+
 double[,] GetVoidRandMatrix(int min, int max)
-{
+{   // Matrix random size from MIN to MAX
     int rows = 0, cols = 0;
     rows = new Random().Next(min, max + 1);
     cols = new Random().Next(min, max + 1);
