@@ -5,7 +5,7 @@
 //  8 7,8 -7,1 9
 
 double[,] GetVoidRandMatrix(int min, int max)
-{   // Matrix random size from MIN to MAX
+{   // Generate 2D matrix random size from MIN to MAX
     int rows = 0, cols = 0;
     rows = new Random().Next(min, max + 1);
     cols = new Random().Next(min, max + 1);
