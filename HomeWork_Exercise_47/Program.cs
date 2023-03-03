@@ -31,10 +31,11 @@ double[,] FillMatrix(double[,] inputMatrix)
     {
         for (int j = 0; j < inputMatrix.GetLength(1); j++)
         {
-            inputMatrix[i, j] = new Random().NextDouble() * 100;
+            inputMatrix[i, j] = new Random().NextDouble() * new Random().Next(-100, 100);
         }
     }
     return inputMatrix;
 }
 
-PrintMatrix(FillMatrix(GetVoidRandMatrix(3, 4)));
+//  Передаются MIN и MAX размеров!! матрицы.
+PrintMatrix(FillMatrix(GetVoidRandMatrix(2, 10)));
