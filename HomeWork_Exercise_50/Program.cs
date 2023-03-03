@@ -50,7 +50,7 @@ int FindValueFromPosition(string inPos, int[,] matrix)
     {
         Console.WriteLine($"Позиции {cols}, {rows} в матрице {matrix.GetLength(0)}, {matrix.GetLength(1)} не существует");
         Environment.Exit(0);
-    }
+    } 
     return matrix[rows - 1, cols - 1];
 }
 
