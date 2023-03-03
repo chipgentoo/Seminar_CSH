@@ -38,4 +38,6 @@ double[,] FillMatrix(double[,] inputMatrix)
 }
 
 //  Передаются MIN и MAX размеров!! матрицы.
-PrintMatrix(FillMatrix(GetVoidRandMatrix(2, 10)));
+double[,] matrix = GetVoidRandMatrix(2, 10);
+matrix = FillMatrix(matrix);
+PrintMatrix(matrix);
