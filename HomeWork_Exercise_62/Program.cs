@@ -43,7 +43,7 @@ int[,] SpiralMatrix(int rows, int cols, int min, int max)
 
     if (rows > cols) { spirals = cols / 2; } else { spirals = rows / 2; }
 
-    for (int padding = 0; padding <= spirals; padding++)
+    for (int padding = 0; padding < spirals; padding++) // pading - отступ от внешнего края матрицы
     {
 
         // от края до предпоследнего для всех
