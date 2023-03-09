@@ -97,10 +97,10 @@ int[,] array = GetMatrix(5, 5);
 Console.WriteLine("\nИсходный массив:");
 PrintMatrix(array);
 
-int[,] sortDownArray = SortRowsMatrix(array);
+int[,] sortDownArray = SortRowsMatrix(array); // по возрастанию
 Console.WriteLine("\nОтсортированный по возрастанию массив:");
 PrintMatrix(sortDownArray);
 
-int[,] sortUpArray = SortRowsMatrix(array,false);
+int[,] sortUpArray = SortRowsMatrix(array,false); // по убыванию
 Console.WriteLine("\nОтсортированный по убыванию массив:");
 PrintMatrix(sortUpArray);
