@@ -29,10 +29,8 @@ void PrintMatrix(int[,] inputMatrix)
 /// </summary>
 /// <param name="rows">кол-во строк</param>
 /// <param name="cols">кол-во колонок</param>
-/// <param name="min">минимальное значение</param>
-/// <param name="max">максимальное значение</param>
 /// <returns>заполненный массив</returns>
-int[,] SpiralMatrix(int rows, int cols, int min, int max)
+int[,] SpiralMatrix(int rows, int cols)
 {
     int[,] array = new int[rows, cols];
     int spiral = 0; // кол-во кольцевых проходов
@@ -90,5 +88,5 @@ int[,] SpiralMatrix(int rows, int cols, int min, int max)
 }
 
 // проверки
-int[,] array = SpiralMatrix(5, 5, 10, 99);
+int[,] array = SpiralMatrix(5, 5);
 PrintMatrix(array);
