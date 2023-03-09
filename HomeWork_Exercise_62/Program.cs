@@ -35,21 +35,22 @@ void PrintMatrix(int[,] inputMatrix)
 int[,] SpiralMatrix(int rows, int cols, int min, int max)
 {
     int[,] array = new int[rows, cols];
-    int spirals = 0; // счетчик круговых проходов
-    int count = 0;   // кол-во затрагиваемых ячеек
-    int value = 1;   // начальное значение заполнения
-    int idxRows = 0; // указатель строки
-    int idxCols = 0; // указатель колонки
+    int spiral = 0; // кол-во кольцевых проходов
+    int padding = 0;// утступ от края матрицы
+    int count = 0;  // кол-во затрагиваемых ячеек
+    int value = 1;  // начальное значение заполнения
+    int idxRows = 0;// указатель строки
+    int idxCols = 0;// указатель колонки
 
-    if (rows > cols) { spirals = cols / 2; } else { spirals = rows / 2; }
+    spiral = rows > cols ? cols / 2 : rows / 2;
 
-    for (int padding = 0; padding < spirals; padding++) // pading - отступ от внешнего края матрицы
+    while (spiral > 0)
     {
 
         // от края до предпоследнего для всех
         // по строке вправо.
-        count = cols - 1 - padding;
-        while (idxCols < count - padding)
+        count = cols - 1 - padding * 2;
+        while (idxCols < count)
         {
             array[idxRows + padding, idxCols + padding] = value;
             idxCols++;
@@ -57,8 +58,8 @@ int[,] SpiralMatrix(int rows, int cols, int min, int max)
         }
 
         // по столбцу вниз
-        count = rows - 1 - padding;
-        while (idxRows < count - padding)
+        count = rows - 1 - padding * 2;
+        while (idxRows < count)
         {
             array[idxRows + padding, idxCols + padding] = value;
             idxRows++;
@@ -66,8 +67,8 @@ int[,] SpiralMatrix(int rows, int cols, int min, int max)
         }
 
         // по строке влево
-        count = cols - idxCols - 1 + padding;
-        while (idxCols > count - padding)
+        count = cols - idxCols - 1 + padding * 2;
+        while (idxCols > count)
         {
             array[idxRows - padding, idxCols - padding] = value;
             idxCols--;
@@ -75,13 +76,15 @@ int[,] SpiralMatrix(int rows, int cols, int min, int max)
         }
 
         // по столбцу вверх
-        count = rows - idxRows - 1 + padding;
-        while (idxRows > count - padding)
+        count = rows - idxRows - 1 + padding * 2;
+        while (idxRows > count)
         {
             array[idxRows - padding, idxCols - padding] = value;
             idxRows--;
             value++;
         }
+        padding++;
+        spiral--;
     }
     return array;
 }
