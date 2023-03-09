@@ -57,7 +57,7 @@ int[,,] Get3DMatrixNoRepeat(int sizeX, int sizeY, int sizeZ, int min, int max)
             for (int k = 0; k < sizeZ; k++)
             {
                 int value = new Random().Next(min, max);
-                while (FindNumber3DMatrix(value, array))
+                while (FindNumber3DMatrix(value, array)) // беск. цикл поиска неравного
                 {
                     value = new Random().Next(min, max);
                 }
