@@ -1,6 +1,6 @@
 ﻿/*
 Задача 62.
-Спиральное заполнение массива.
+Спиральное заполнение массива 4x4.
 Например, на выходе получается вот такой массив:
 01 02 03 04
 12 13 14 05
@@ -18,7 +18,7 @@ void PrintMatrix(int[,] inputMatrix)
     {
         for (int j = 0; j < inputMatrix.GetLength(1); j++)
         {
-            Console.Write($"{inputMatrix[i, j]:d2}\t");
+            Console.Write($"{inputMatrix[i, j]:d2} ");
         }
         Console.WriteLine();
     }
@@ -33,14 +33,14 @@ void PrintMatrix(int[,] inputMatrix)
 int[,] SpiralMatrix(int rows, int cols)
 {
     int[,] array = new int[rows, cols];
-    int spiral = 0;     // кол-во кольцевых проходов
     int padding = 0;    // смещение от края матрицы
-    int value = 1;      // начальное значение заполнения
     int idxRows = 0;    // текущая строка
     int idxCols = 0;    // текущий столбец
-    spiral = rows > cols ? cols / 2 : rows / 2;
+    int value = 1;      // начальное значение
 
-    while (spiral > 0)
+    int cycle = rows > cols ? cols / 2 : rows / 2;
+
+    while (cycle > 0)
     {
         idxRows = padding; idxCols = padding;
         for (idxCols = padding; idxCols < cols - 1 - padding; idxCols++)
@@ -60,11 +60,25 @@ int[,] SpiralMatrix(int rows, int cols)
             array[idxRows, idxCols] = value; value++;
         }
         padding++;
-        spiral--;
+        cycle--;
     }
     return array;
 }
 
 // проверки
-int[,] array = SpiralMatrix(10, 10);
+int[,] array ={{},{}};
+
+Console.WriteLine("Массив 4х4");
+array = SpiralMatrix(4, 4);
 PrintMatrix(array);
+Console.WriteLine();
+
+Console.WriteLine("Массив 6х6");
+array = SpiralMatrix(6, 6);
+PrintMatrix(array);
+Console.WriteLine();
+
+Console.WriteLine("Массив 8х8");
+array = SpiralMatrix(8, 8);
+PrintMatrix(array);
+Console.WriteLine();
